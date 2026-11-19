@@ -1,0 +1,7 @@
+{
+  "config": "aiscatcher",
+  "version": 1,
+  "http": [
+    { "url": "<your-https-address>", "interval": 30 }
+  ]
+}

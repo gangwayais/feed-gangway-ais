@@ -1,0 +1,19 @@
+# systemd unit for rtl-ais sending to Gangway AIS.
+# Copy to /etc/systemd/system/rtl-ais.service, replace the placeholders, then run
+#   sudo systemctl daemon-reload && sudo systemctl enable --now rtl-ais
+# Get <your-host> and <your-port> on https://gangwayais.com/stations/feed-us/
+# To feed several networks, use -h localhost -P 10111 here and
+# examples/kplex/kplex-rtl-ais.conf.
+
+[Unit]
+Description=rtl-ais AIS receiver
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/local/bin/rtl_ais -h <your-host> -P <your-port>
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+# The part of a docker-shipfeeder compose file that adds Gangway AIS.
+# Keep the rest of your own file as it is. Only the UDP_FEEDS line matters here.
+# Get <your-host> and <your-port> on https://gangwayais.com/stations/feed-us/
+
+services:
+  shipfeeder:
+    image: ghcr.io/sdr-enthusiasts/docker-shipfeeder
+    container_name: shipfeeder
+    restart: unless-stopped
+    environment:
+      # One entry per network, separated by commas. Add ours to the ones you have.
+      - UDP_FEEDS=${UDP_FEEDS}

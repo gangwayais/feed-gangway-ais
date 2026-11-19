@@ -1,0 +1,7 @@
+{
+  "config": "aiscatcher",
+  "version": 1,
+  "udp": [
+    { "host": "<your-host>", "port": "<your-port>" }
+  ]
+}
