@@ -10,7 +10,7 @@ Setup notes, example configurations and troubleshooting for AIS station owners w
 
 ### [gangwayais.com/stations/feed-us/](https://gangwayais.com/stations/feed-us/)
 
-Your setup begins on that page. It says what your station sends and what you get back, including a station plan and a [station data key](#station-data) of your own. From there the feed page gives your station its own address, asks you to accept the station terms and opens a private station page for you. That step tells us who runs each station and how to reach you about it.
+Your setup begins on that page. It says what your station sends and what you get back, and how a station that keeps sending can earn a station plan with a [station data key](#station-data) of its own. From there the feed page gives your station its own address, asks you to accept the station terms and opens a private station page for you. That step tells us who runs each station and how to reach you about it.
 
 This repository is a companion to the page. It holds example files, notes for common programs and help when nothing arrives. Each example uses placeholders. Your own host, port and HTTPS address come from the feed page.
 
@@ -212,17 +212,21 @@ Your station page is private to you. It opens only from its own long address, wh
 
 ## Station data
 
-While your station holds a station plan and keeps sending, you can make a station data key on your station panel with one click. The key reads the vessels your own station hears and the traffic around it, live, so you can use it in your own map, app or project.
+While your station holds a station plan and keeps sending, you can make a station data key on your private station page. The key reads the vessels your own station hears and the vessels in the area around it, live, so you can use them in your own map, app or project for non-commercial use.
+
+A station plan brings your station page and this key. It brings no dashboard and no business tools. Those are part of the [Watch plans](https://gangwayais.com/#pricing-watch), which anyone may take.
 
 | | Station Essential | Station Professional |
 |---|---|---|
 | Requests | 2 a minute | 10 a minute |
 | Requests a month | 30,000 | 30,000 |
-| Area | about 570 nm around your station | the whole world |
+| Area | 570 nm around your station | the whole world |
 | Vessels per answer | 1,000 | 5,000 |
 | Track history | 3 days | 7 days |
 
-- **Make the key.** Open your station panel and press **Make my key**. The key is shown once. Keep it to yourself, never in a public page or repository.
+Station Professional is by invitation. Your station page shows the limits of your own plan.
+
+- **Make the key.** Open your private station page and press **Make my key**. We send a code to your station's email, the address your station joined with. Enter it on the page and your key is shown once. Keep it to yourself, never in a public page or repository. A new key replaces the old one, which stops working at once.
 - **Use it.** Send it in the `Authorization` header.
 
   ```sh
@@ -230,8 +234,8 @@ While your station holds a station plan and keeps sending, you can make a statio
   ```
 
   The addresses, fields and examples are in the [documentation](https://gangwayais.com/docs/credits/#station-data).
-- **It follows your station.** The key pauses by itself when your station stops sending and works again as soon as it sends.
-- **Conditions of use.** They are shown on your station panel and in section 5 of the [Station Agreement](https://gangwayais.com/legal/station/). For a commercial project write to [desk@gangwayais.com](mailto:desk@gangwayais.com).
+- **It follows your station.** The key pauses by itself when your station stops sending and works again as soon as it sends. It also pauses with your plan after a second month in a row below 85 % of the hours online and comes back when the plan does.
+- **Conditions of use.** Non-commercial use only, with the credit "AIS data from Gangway AIS (gangwayais.com)" wherever you show the data. They are shown on your station page and in section 5 of the [Station Agreement](https://gangwayais.com/legal/station/). For a commercial project write to [desk@gangwayais.com](mailto:desk@gangwayais.com).
 
 ## Troubleshooting
 
@@ -269,7 +273,7 @@ For the first 24 hours a new station is on trial. Vessels that another source al
 With your own port your station keeps its name and history when the address changes. Without one your station is known by a code worked out from its connection and a new address starts a new code.
 
 **My station data key answers "paused".**
-The key works while your station sends. Check that your station page shows it on air. If it does and the key still answers paused, write to [desk@gangwayais.com](mailto:desk@gangwayais.com).
+The key works while your station sends and holds its plan. Check that your station page shows it on air and the plan running. If it does and the key still answers paused, write to [desk@gangwayais.com](mailto:desk@gangwayais.com).
 
 **Still stuck?**
 Open an issue with the [feeding help template](https://github.com/gangwayais/feed-gangway-ais/issues/new/choose) or write to [desk@gangwayais.com](mailto:desk@gangwayais.com). Never post your port, your HTTPS address or your station page address in a public issue.
